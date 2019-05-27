@@ -23,4 +23,11 @@ public class RoleController {
         List<Role> roles = roleService.getRoles();
         return RespMessage.success(roles);
     }
+
+    @GetMapping("role")
+    public RespMessage getRole(@RequestParam("id")Integer id){
+        Role role = roleService.getRole(id);
+        return RespMessage.success(role);
+    }
+
 }
