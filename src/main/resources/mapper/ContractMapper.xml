@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lqt.hr.dao.ContractMapper">
+  <resultMap id="BaseResultMap" type="com.lqt.hr.model.Contract">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="ID_card" jdbcType="CHAR" property="idCard" />
+    <result column="job_content" jdbcType="VARCHAR" property="jobContent" />
+    <result column="job_address" jdbcType="VARCHAR" property="jobAddress" />
+    <result column="time_setting" jdbcType="VARCHAR" property="timeSetting" />
+    <result column="protection" jdbcType="VARCHAR" property="protection" />
+    <result column="reward" jdbcType="VARCHAR" property="reward" />
+    <result column="insurance" jdbcType="VARCHAR" property="insurance" />
+    <result column="welfare" jdbcType="VARCHAR" property="welfare" />
+    <result column="change" jdbcType="VARCHAR" property="change" />
+    <result column="breach" jdbcType="VARCHAR" property="breach" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="cp_address" jdbcType="VARCHAR" property="cpAddress" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, ID_card, job_content, job_address, time_setting, protection, reward, insurance, 
+    welfare, change, breach, company, cp_address, time, state
+  </sql>
+  <select id="selectByExample" parameterType="com.lqt.hr.model.ContractExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from contract
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from contract
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lqt.hr.model.ContractExample">
+    delete from contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lqt.hr.model.Contract">
+    insert into contract (id, name, ID_card, 
+      job_content, job_address, time_setting, 
+      protection, reward, insurance, 
+      welfare, change, breach, 
+      company, cp_address, time, 
+      state)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{idCard,jdbcType=CHAR}, 
+      #{jobContent,jdbcType=VARCHAR}, #{jobAddress,jdbcType=VARCHAR}, #{timeSetting,jdbcType=VARCHAR}, 
+      #{protection,jdbcType=VARCHAR}, #{reward,jdbcType=VARCHAR}, #{insurance,jdbcType=VARCHAR}, 
+      #{welfare,jdbcType=VARCHAR}, #{change,jdbcType=VARCHAR}, #{breach,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{cpAddress,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lqt.hr.model.Contract">
+    insert into contract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="idCard != null">
+        ID_card,
+      </if>
+      <if test="jobContent != null">
+        job_content,
+      </if>
+      <if test="jobAddress != null">
+        job_address,
+      </if>
+      <if test="timeSetting != null">
+        time_setting,
+      </if>
+      <if test="protection != null">
+        protection,
+      </if>
+      <if test="reward != null">
+        reward,
+      </if>
+      <if test="insurance != null">
+        insurance,
+      </if>
+      <if test="welfare != null">
+        welfare,
+      </if>
+      <if test="change != null">
+        change,
+      </if>
+      <if test="breach != null">
+        breach,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="cpAddress != null">
+        cp_address,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=CHAR},
+      </if>
+      <if test="jobContent != null">
+        #{jobContent,jdbcType=VARCHAR},
+      </if>
+      <if test="jobAddress != null">
+        #{jobAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="timeSetting != null">
+        #{timeSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="protection != null">
+        #{protection,jdbcType=VARCHAR},
+      </if>
+      <if test="reward != null">
+        #{reward,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null">
+        #{insurance,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare != null">
+        #{welfare,jdbcType=VARCHAR},
+      </if>
+      <if test="change != null">
+        #{change,jdbcType=VARCHAR},
+      </if>
+      <if test="breach != null">
+        #{breach,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="cpAddress != null">
+        #{cpAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lqt.hr.model.ContractExample" resultType="java.lang.Long">
+    select count(*) from contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update contract
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCard != null">
+        ID_card = #{record.idCard,jdbcType=CHAR},
+      </if>
+      <if test="record.jobContent != null">
+        job_content = #{record.jobContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobAddress != null">
+        job_address = #{record.jobAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timeSetting != null">
+        time_setting = #{record.timeSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protection != null">
+        protection = #{record.protection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reward != null">
+        reward = #{record.reward,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurance != null">
+        insurance = #{record.insurance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.welfare != null">
+        welfare = #{record.welfare,jdbcType=VARCHAR},
+      </if>
+      <if test="record.change != null">
+        change = #{record.change,jdbcType=VARCHAR},
+      </if>
+      <if test="record.breach != null">
+        breach = #{record.breach,jdbcType=VARCHAR},
+      </if>
+      <if test="record.company != null">
+        company = #{record.company,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cpAddress != null">
+        cp_address = #{record.cpAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update contract
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      ID_card = #{record.idCard,jdbcType=CHAR},
+      job_content = #{record.jobContent,jdbcType=VARCHAR},
+      job_address = #{record.jobAddress,jdbcType=VARCHAR},
+      time_setting = #{record.timeSetting,jdbcType=VARCHAR},
+      protection = #{record.protection,jdbcType=VARCHAR},
+      reward = #{record.reward,jdbcType=VARCHAR},
+      insurance = #{record.insurance,jdbcType=VARCHAR},
+      welfare = #{record.welfare,jdbcType=VARCHAR},
+      change = #{record.change,jdbcType=VARCHAR},
+      breach = #{record.breach,jdbcType=VARCHAR},
+      company = #{record.company,jdbcType=VARCHAR},
+      cp_address = #{record.cpAddress,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lqt.hr.model.Contract">
+    update contract
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        ID_card = #{idCard,jdbcType=CHAR},
+      </if>
+      <if test="jobContent != null">
+        job_content = #{jobContent,jdbcType=VARCHAR},
+      </if>
+      <if test="jobAddress != null">
+        job_address = #{jobAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="timeSetting != null">
+        time_setting = #{timeSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="protection != null">
+        protection = #{protection,jdbcType=VARCHAR},
+      </if>
+      <if test="reward != null">
+        reward = #{reward,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null">
+        insurance = #{insurance,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare != null">
+        welfare = #{welfare,jdbcType=VARCHAR},
+      </if>
+      <if test="change != null">
+        change = #{change,jdbcType=VARCHAR},
+      </if>
+      <if test="breach != null">
+        breach = #{breach,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="cpAddress != null">
+        cp_address = #{cpAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.Contract">
+    update contract
+    set name = #{name,jdbcType=VARCHAR},
+      ID_card = #{idCard,jdbcType=CHAR},
+      job_content = #{jobContent,jdbcType=VARCHAR},
+      job_address = #{jobAddress,jdbcType=VARCHAR},
+      time_setting = #{timeSetting,jdbcType=VARCHAR},
+      protection = #{protection,jdbcType=VARCHAR},
+      reward = #{reward,jdbcType=VARCHAR},
+      insurance = #{insurance,jdbcType=VARCHAR},
+      welfare = #{welfare,jdbcType=VARCHAR},
+      change = #{change,jdbcType=VARCHAR},
+      breach = #{breach,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      cp_address = #{cpAddress,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

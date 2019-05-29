@@ -1,7 +1,6 @@
 package com.lqt.hr.controller;
 
 import com.lqt.hr.common.utils.RespMessage;
-import com.lqt.hr.model.User;
 import com.lqt.hr.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

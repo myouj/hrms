@@ -1,7 +1,5 @@
 package com.lqt.hr.service;
 
-import com.lqt.hr.model.User;
-
 import java.util.List;
 
 public interface IUserService {

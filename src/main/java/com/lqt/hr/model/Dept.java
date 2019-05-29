@@ -1,11 +1,11 @@
 package com.lqt.hr.model;
 
-public class Group {
+public class Dept {
     private Integer id;
 
     private String name;
 
-    private String description;
+    private String duty;
 
     public Integer getId() {
         return id;
@@ -23,11 +23,11 @@ public class Group {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getDescription() {
-        return description;
+    public String getDuty() {
+        return duty;
     }
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+    public void setDuty(String duty) {
+        this.duty = duty == null ? null : duty.trim();
     }
 }

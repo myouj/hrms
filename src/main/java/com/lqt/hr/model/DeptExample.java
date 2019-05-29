@@ -3,14 +3,14 @@ package com.lqt.hr.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestExample {
+public class DeptExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TestExample() {
+    public DeptExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -234,63 +234,73 @@ public class TestExample {
             return (Criteria) this;
         }
 
-        public Criteria andAgeIsNull() {
-            addCriterion("age is null");
+        public Criteria andDutyIsNull() {
+            addCriterion("duty is null");
             return (Criteria) this;
         }
 
-        public Criteria andAgeIsNotNull() {
-            addCriterion("age is not null");
+        public Criteria andDutyIsNotNull() {
+            addCriterion("duty is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAgeEqualTo(Integer value) {
-            addCriterion("age =", value, "age");
+        public Criteria andDutyEqualTo(String value) {
+            addCriterion("duty =", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeNotEqualTo(Integer value) {
-            addCriterion("age <>", value, "age");
+        public Criteria andDutyNotEqualTo(String value) {
+            addCriterion("duty <>", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeGreaterThan(Integer value) {
-            addCriterion("age >", value, "age");
+        public Criteria andDutyGreaterThan(String value) {
+            addCriterion("duty >", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("age >=", value, "age");
+        public Criteria andDutyGreaterThanOrEqualTo(String value) {
+            addCriterion("duty >=", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeLessThan(Integer value) {
-            addCriterion("age <", value, "age");
+        public Criteria andDutyLessThan(String value) {
+            addCriterion("duty <", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeLessThanOrEqualTo(Integer value) {
-            addCriterion("age <=", value, "age");
+        public Criteria andDutyLessThanOrEqualTo(String value) {
+            addCriterion("duty <=", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeIn(List<Integer> values) {
-            addCriterion("age in", values, "age");
+        public Criteria andDutyLike(String value) {
+            addCriterion("duty like", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeNotIn(List<Integer> values) {
-            addCriterion("age not in", values, "age");
+        public Criteria andDutyNotLike(String value) {
+            addCriterion("duty not like", value, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeBetween(Integer value1, Integer value2) {
-            addCriterion("age between", value1, value2, "age");
+        public Criteria andDutyIn(List<String> values) {
+            addCriterion("duty in", values, "duty");
             return (Criteria) this;
         }
 
-        public Criteria andAgeNotBetween(Integer value1, Integer value2) {
-            addCriterion("age not between", value1, value2, "age");
+        public Criteria andDutyNotIn(List<String> values) {
+            addCriterion("duty not in", values, "duty");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyBetween(String value1, String value2) {
+            addCriterion("duty between", value1, value2, "duty");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyNotBetween(String value1, String value2) {
+            addCriterion("duty not between", value1, value2, "duty");
             return (Criteria) this;
         }
     }

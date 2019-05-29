@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lqt.hr.dao.GroupUserMapper">
-  <resultMap id="BaseResultMap" type="com.lqt.hr.model.GroupUser">
+<mapper namespace="com.lqt.hr.dao.RulesMapper">
+  <resultMap id="BaseResultMap" type="com.lqt.hr.model.Rules">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="group_id" jdbcType="INTEGER" property="groupId" />
-    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="item" jdbcType="VARCHAR" property="item" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="publisher" jdbcType="VARCHAR" property="publisher" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, user_name, group_id, group_name
+    id, title, item, type, publisher, time
   </sql>
-  <select id="selectByExample" parameterType="com.lqt.hr.model.GroupUserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lqt.hr.model.RulesExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from group_user
+    from rules
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +87,96 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from group_user
+    from rules
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from group_user
+    delete from rules
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lqt.hr.model.GroupUserExample">
-    delete from group_user
+  <delete id="deleteByExample" parameterType="com.lqt.hr.model.RulesExample">
+    delete from rules
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lqt.hr.model.GroupUser">
-    insert into group_user (id, user_id, user_name, 
-      group_id, group_name)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
-      #{groupId,jdbcType=INTEGER}, #{groupName,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.lqt.hr.model.Rules">
+    insert into rules (id, title, item, 
+      type, publisher, time
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{item,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.lqt.hr.model.GroupUser">
-    insert into group_user
+  <insert id="insertSelective" parameterType="com.lqt.hr.model.Rules">
+    insert into rules
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="userId != null">
-        user_id,
+      <if test="title != null">
+        title,
       </if>
-      <if test="userName != null">
-        user_name,
+      <if test="item != null">
+        item,
       </if>
-      <if test="groupId != null">
-        group_id,
+      <if test="type != null">
+        type,
       </if>
-      <if test="groupName != null">
-        group_name,
+      <if test="publisher != null">
+        publisher,
+      </if>
+      <if test="time != null">
+        time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
       </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
+      <if test="item != null">
+        #{item,jdbcType=VARCHAR},
       </if>
-      <if test="groupId != null">
-        #{groupId,jdbcType=INTEGER},
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
       </if>
-      <if test="groupName != null">
-        #{groupName,jdbcType=VARCHAR},
+      <if test="publisher != null">
+        #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lqt.hr.model.GroupUserExample" resultType="java.lang.Long">
-    select count(*) from group_user
+  <select id="countByExample" parameterType="com.lqt.hr.model.RulesExample" resultType="java.lang.Long">
+    select count(*) from rules
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update group_user
+    update rules
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
       </if>
-      <if test="record.userName != null">
-        user_name = #{record.userName,jdbcType=VARCHAR},
+      <if test="record.item != null">
+        item = #{record.item,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupId != null">
-        group_id = #{record.groupId,jdbcType=INTEGER},
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupName != null">
-        group_name = #{record.groupName,jdbcType=VARCHAR},
+      <if test="record.publisher != null">
+        publisher = #{record.publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -172,40 +184,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update group_user
+    update rules
     set id = #{record.id,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      user_name = #{record.userName,jdbcType=VARCHAR},
-      group_id = #{record.groupId,jdbcType=INTEGER},
-      group_name = #{record.groupName,jdbcType=VARCHAR}
+      title = #{record.title,jdbcType=VARCHAR},
+      item = #{record.item,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      publisher = #{record.publisher,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lqt.hr.model.GroupUser">
-    update group_user
+  <update id="updateByPrimaryKeySelective" parameterType="com.lqt.hr.model.Rules">
+    update rules
     <set>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
+      <if test="item != null">
+        item = #{item,jdbcType=VARCHAR},
       </if>
-      <if test="groupId != null">
-        group_id = #{groupId,jdbcType=INTEGER},
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
       </if>
-      <if test="groupName != null">
-        group_name = #{groupName,jdbcType=VARCHAR},
+      <if test="publisher != null">
+        publisher = #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.GroupUser">
-    update group_user
-    set user_id = #{userId,jdbcType=INTEGER},
-      user_name = #{userName,jdbcType=VARCHAR},
-      group_id = #{groupId,jdbcType=INTEGER},
-      group_name = #{groupName,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.Rules">
+    update rules
+    set title = #{title,jdbcType=VARCHAR},
+      item = #{item,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      publisher = #{publisher,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,7 +1,6 @@
 package com.lqt.hr.controller;
 
 import com.lqt.hr.common.utils.RespMessage;
-import com.lqt.hr.model.Role;
 import com.lqt.hr.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

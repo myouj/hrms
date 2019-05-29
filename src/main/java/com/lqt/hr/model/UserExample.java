@@ -364,133 +364,133 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andActiveIsNull() {
-            addCriterion("active is null");
+        public Criteria andRoleNameIsNull() {
+            addCriterion("role_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andActiveIsNotNull() {
-            addCriterion("active is not null");
+        public Criteria andRoleNameIsNotNull() {
+            addCriterion("role_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andActiveEqualTo(Integer value) {
-            addCriterion("active =", value, "active");
+        public Criteria andRoleNameEqualTo(String value) {
+            addCriterion("role_name =", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveNotEqualTo(Integer value) {
-            addCriterion("active <>", value, "active");
+        public Criteria andRoleNameNotEqualTo(String value) {
+            addCriterion("role_name <>", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveGreaterThan(Integer value) {
-            addCriterion("active >", value, "active");
+        public Criteria andRoleNameGreaterThan(String value) {
+            addCriterion("role_name >", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveGreaterThanOrEqualTo(Integer value) {
-            addCriterion("active >=", value, "active");
+        public Criteria andRoleNameGreaterThanOrEqualTo(String value) {
+            addCriterion("role_name >=", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveLessThan(Integer value) {
-            addCriterion("active <", value, "active");
+        public Criteria andRoleNameLessThan(String value) {
+            addCriterion("role_name <", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveLessThanOrEqualTo(Integer value) {
-            addCriterion("active <=", value, "active");
+        public Criteria andRoleNameLessThanOrEqualTo(String value) {
+            addCriterion("role_name <=", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveIn(List<Integer> values) {
-            addCriterion("active in", values, "active");
+        public Criteria andRoleNameLike(String value) {
+            addCriterion("role_name like", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveNotIn(List<Integer> values) {
-            addCriterion("active not in", values, "active");
+        public Criteria andRoleNameNotLike(String value) {
+            addCriterion("role_name not like", value, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveBetween(Integer value1, Integer value2) {
-            addCriterion("active between", value1, value2, "active");
+        public Criteria andRoleNameIn(List<String> values) {
+            addCriterion("role_name in", values, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andActiveNotBetween(Integer value1, Integer value2) {
-            addCriterion("active not between", value1, value2, "active");
+        public Criteria andRoleNameNotIn(List<String> values) {
+            addCriterion("role_name not in", values, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIsNull() {
-            addCriterion("token is null");
+        public Criteria andRoleNameBetween(String value1, String value2) {
+            addCriterion("role_name between", value1, value2, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIsNotNull() {
-            addCriterion("token is not null");
+        public Criteria andRoleNameNotBetween(String value1, String value2) {
+            addCriterion("role_name not between", value1, value2, "roleName");
             return (Criteria) this;
         }
 
-        public Criteria andTokenEqualTo(String value) {
-            addCriterion("token =", value, "token");
+        public Criteria andEIdIsNull() {
+            addCriterion("e_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTokenNotEqualTo(String value) {
-            addCriterion("token <>", value, "token");
+        public Criteria andEIdIsNotNull() {
+            addCriterion("e_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTokenGreaterThan(String value) {
-            addCriterion("token >", value, "token");
+        public Criteria andEIdEqualTo(Integer value) {
+            addCriterion("e_id =", value, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenGreaterThanOrEqualTo(String value) {
-            addCriterion("token >=", value, "token");
+        public Criteria andEIdNotEqualTo(Integer value) {
+            addCriterion("e_id <>", value, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenLessThan(String value) {
-            addCriterion("token <", value, "token");
+        public Criteria andEIdGreaterThan(Integer value) {
+            addCriterion("e_id >", value, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenLessThanOrEqualTo(String value) {
-            addCriterion("token <=", value, "token");
+        public Criteria andEIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("e_id >=", value, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenLike(String value) {
-            addCriterion("token like", value, "token");
+        public Criteria andEIdLessThan(Integer value) {
+            addCriterion("e_id <", value, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenNotLike(String value) {
-            addCriterion("token not like", value, "token");
+        public Criteria andEIdLessThanOrEqualTo(Integer value) {
+            addCriterion("e_id <=", value, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIn(List<String> values) {
-            addCriterion("token in", values, "token");
+        public Criteria andEIdIn(List<Integer> values) {
+            addCriterion("e_id in", values, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenNotIn(List<String> values) {
-            addCriterion("token not in", values, "token");
+        public Criteria andEIdNotIn(List<Integer> values) {
+            addCriterion("e_id not in", values, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenBetween(String value1, String value2) {
-            addCriterion("token between", value1, value2, "token");
+        public Criteria andEIdBetween(Integer value1, Integer value2) {
+            addCriterion("e_id between", value1, value2, "eId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenNotBetween(String value1, String value2) {
-            addCriterion("token not between", value1, value2, "token");
+        public Criteria andEIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("e_id not between", value1, value2, "eId");
             return (Criteria) this;
         }
     }

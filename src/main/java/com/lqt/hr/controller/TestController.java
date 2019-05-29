@@ -1,6 +1,5 @@
 package com.lqt.hr.controller;
 
-import com.lqt.hr.model.Test;
 import com.lqt.hr.service.ITestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

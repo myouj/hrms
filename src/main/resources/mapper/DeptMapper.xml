@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lqt.hr.dao.TestMapper">
-  <resultMap id="BaseResultMap" type="com.lqt.hr.model.Test">
+<mapper namespace="com.lqt.hr.dao.DeptMapper">
+  <resultMap id="BaseResultMap" type="com.lqt.hr.model.Dept">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="duty" jdbcType="VARCHAR" property="duty" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,15 +65,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, age
+    id, name, duty
   </sql>
-  <select id="selectByExample" parameterType="com.lqt.hr.model.TestExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lqt.hr.model.DeptExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from test
+    from dept
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,27 +84,27 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from test
+    from dept
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from test
+    delete from dept
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lqt.hr.model.TestExample">
-    delete from test
+  <delete id="deleteByExample" parameterType="com.lqt.hr.model.DeptExample">
+    delete from dept
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lqt.hr.model.Test">
-    insert into test (id, name, age
+  <insert id="insert" parameterType="com.lqt.hr.model.Dept">
+    insert into dept (id, name, duty
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{duty,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lqt.hr.model.Test">
-    insert into test
+  <insert id="insertSelective" parameterType="com.lqt.hr.model.Dept">
+    insert into dept
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -112,8 +112,8 @@
       <if test="name != null">
         name,
       </if>
-      <if test="age != null">
-        age,
+      <if test="duty != null">
+        duty,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -123,19 +123,19 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="age != null">
-        #{age,jdbcType=INTEGER},
+      <if test="duty != null">
+        #{duty,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lqt.hr.model.TestExample" resultType="java.lang.Long">
-    select count(*) from test
+  <select id="countByExample" parameterType="com.lqt.hr.model.DeptExample" resultType="java.lang.Long">
+    select count(*) from dept
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update test
+    update dept
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -143,8 +143,8 @@
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.age != null">
-        age = #{record.age,jdbcType=INTEGER},
+      <if test="record.duty != null">
+        duty = #{record.duty,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +152,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update test
+    update dept
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      age = #{record.age,jdbcType=INTEGER}
+      duty = #{record.duty,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lqt.hr.model.Test">
-    update test
+  <update id="updateByPrimaryKeySelective" parameterType="com.lqt.hr.model.Dept">
+    update dept
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="age != null">
-        age = #{age,jdbcType=INTEGER},
+      <if test="duty != null">
+        duty = #{duty,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.Test">
-    update test
+  <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.Dept">
+    update dept
     set name = #{name,jdbcType=VARCHAR},
-      age = #{age,jdbcType=INTEGER}
+      duty = #{duty,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

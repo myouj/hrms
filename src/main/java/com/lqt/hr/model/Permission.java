@@ -9,6 +9,8 @@ public class Permission {
 
     private Integer roleId;
 
+    private String roleName;
+
     private String description;
 
     public Integer getId() {
@@ -41,6 +43,14 @@ public class Permission {
 
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName == null ? null : roleName.trim();
     }
 
     public String getDescription() {

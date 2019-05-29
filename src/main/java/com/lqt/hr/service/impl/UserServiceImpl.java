@@ -1,8 +1,5 @@
 package com.lqt.hr.service.impl;
 
-import com.lqt.hr.dao.UserMapper;
-import com.lqt.hr.model.User;
-import com.lqt.hr.model.UserExample;
 import com.lqt.hr.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

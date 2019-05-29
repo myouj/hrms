@@ -9,9 +9,9 @@ public class User {
 
     private Integer roleId;
 
-    private Integer active;
+    private String roleName;
 
-    private String token;
+    private Integer eId;
 
     public Integer getId() {
         return id;
@@ -45,19 +45,19 @@ public class User {
         this.roleId = roleId;
     }
 
-    public Integer getActive() {
-        return active;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setActive(Integer active) {
-        this.active = active;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName == null ? null : roleName.trim();
     }
 
-    public String getToken() {
-        return token;
+    public Integer geteId() {
+        return eId;
     }
 
-    public void setToken(String token) {
-        this.token = token == null ? null : token.trim();
+    public void seteId(Integer eId) {
+        this.eId = eId;
     }
 }

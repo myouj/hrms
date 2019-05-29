@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lqt.hr.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.lqt.hr.model.User">
+<mapper namespace="com.lqt.hr.dao.ComRecordMapper">
+  <resultMap id="BaseResultMap" type="com.lqt.hr.model.ComRecord">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="role_id" jdbcType="INTEGER" property="roleId" />
-    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
-    <result column="e_id" jdbcType="INTEGER" property="eId" />
+    <result column="rg_number" jdbcType="INTEGER" property="rgNumber" />
+    <result column="rg_address" jdbcType="VARCHAR" property="rgAddress" />
+    <result column="representative" jdbcType="VARCHAR" property="representative" />
+    <result column="range" jdbcType="VARCHAR" property="range" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="rg_assets" jdbcType="VARCHAR" property="rgAssets" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,15 +71,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, password, role_id, role_name, e_id
+    id, name, rg_number, rg_address, representative, range, type, rg_assets, time
   </sql>
-  <select id="selectByExample" parameterType="com.lqt.hr.model.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lqt.hr.model.ComRecordExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user
+    from com_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,29 +90,31 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user
+    from com_record
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
+    delete from com_record
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lqt.hr.model.UserExample">
-    delete from user
+  <delete id="deleteByExample" parameterType="com.lqt.hr.model.ComRecordExample">
+    delete from com_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lqt.hr.model.User">
-    insert into user (id, name, password, 
-      role_id, role_name, e_id
+  <insert id="insert" parameterType="com.lqt.hr.model.ComRecord">
+    insert into com_record (id, name, rg_number, 
+      rg_address, representative, range, 
+      type, rg_assets, time
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{eId,jdbcType=INTEGER}
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{rgNumber,jdbcType=INTEGER}, 
+      #{rgAddress,jdbcType=VARCHAR}, #{representative,jdbcType=VARCHAR}, #{range,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{rgAssets,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lqt.hr.model.User">
-    insert into user
+  <insert id="insertSelective" parameterType="com.lqt.hr.model.ComRecord">
+    insert into com_record
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -117,17 +122,26 @@
       <if test="name != null">
         name,
       </if>
-      <if test="password != null">
-        password,
+      <if test="rgNumber != null">
+        rg_number,
       </if>
-      <if test="roleId != null">
-        role_id,
+      <if test="rgAddress != null">
+        rg_address,
       </if>
-      <if test="roleName != null">
-        role_name,
+      <if test="representative != null">
+        representative,
       </if>
-      <if test="eId != null">
-        e_id,
+      <if test="range != null">
+        range,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="rgAssets != null">
+        rg_assets,
+      </if>
+      <if test="time != null">
+        time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -137,28 +151,37 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+      <if test="rgNumber != null">
+        #{rgNumber,jdbcType=INTEGER},
       </if>
-      <if test="roleId != null">
-        #{roleId,jdbcType=INTEGER},
+      <if test="rgAddress != null">
+        #{rgAddress,jdbcType=VARCHAR},
       </if>
-      <if test="roleName != null">
-        #{roleName,jdbcType=VARCHAR},
+      <if test="representative != null">
+        #{representative,jdbcType=VARCHAR},
       </if>
-      <if test="eId != null">
-        #{eId,jdbcType=INTEGER},
+      <if test="range != null">
+        #{range,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="rgAssets != null">
+        #{rgAssets,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lqt.hr.model.UserExample" resultType="java.lang.Long">
-    select count(*) from user
+  <select id="countByExample" parameterType="com.lqt.hr.model.ComRecordExample" resultType="java.lang.Long">
+    select count(*) from com_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user
+    update com_record
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -166,17 +189,26 @@
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.password != null">
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.rgNumber != null">
+        rg_number = #{record.rgNumber,jdbcType=INTEGER},
       </if>
-      <if test="record.roleId != null">
-        role_id = #{record.roleId,jdbcType=INTEGER},
+      <if test="record.rgAddress != null">
+        rg_address = #{record.rgAddress,jdbcType=VARCHAR},
       </if>
-      <if test="record.roleName != null">
-        role_name = #{record.roleName,jdbcType=VARCHAR},
+      <if test="record.representative != null">
+        representative = #{record.representative,jdbcType=VARCHAR},
       </if>
-      <if test="record.eId != null">
-        e_id = #{record.eId,jdbcType=INTEGER},
+      <if test="record.range != null">
+        range = #{record.range,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rgAssets != null">
+        rg_assets = #{record.rgAssets,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -184,45 +216,60 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user
+    update com_record
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
-      role_id = #{record.roleId,jdbcType=INTEGER},
-      role_name = #{record.roleName,jdbcType=VARCHAR},
-      e_id = #{record.eId,jdbcType=INTEGER}
+      rg_number = #{record.rgNumber,jdbcType=INTEGER},
+      rg_address = #{record.rgAddress,jdbcType=VARCHAR},
+      representative = #{record.representative,jdbcType=VARCHAR},
+      range = #{record.range,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      rg_assets = #{record.rgAssets,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lqt.hr.model.User">
-    update user
+  <update id="updateByPrimaryKeySelective" parameterType="com.lqt.hr.model.ComRecord">
+    update com_record
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
+      <if test="rgNumber != null">
+        rg_number = #{rgNumber,jdbcType=INTEGER},
       </if>
-      <if test="roleId != null">
-        role_id = #{roleId,jdbcType=INTEGER},
+      <if test="rgAddress != null">
+        rg_address = #{rgAddress,jdbcType=VARCHAR},
       </if>
-      <if test="roleName != null">
-        role_name = #{roleName,jdbcType=VARCHAR},
+      <if test="representative != null">
+        representative = #{representative,jdbcType=VARCHAR},
       </if>
-      <if test="eId != null">
-        e_id = #{eId,jdbcType=INTEGER},
+      <if test="range != null">
+        range = #{range,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="rgAssets != null">
+        rg_assets = #{rgAssets,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.User">
-    update user
+  <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.ComRecord">
+    update com_record
     set name = #{name,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      role_id = #{roleId,jdbcType=INTEGER},
-      role_name = #{roleName,jdbcType=VARCHAR},
-      e_id = #{eId,jdbcType=INTEGER}
+      rg_number = #{rgNumber,jdbcType=INTEGER},
+      rg_address = #{rgAddress,jdbcType=VARCHAR},
+      representative = #{representative,jdbcType=VARCHAR},
+      range = #{range,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      rg_assets = #{rgAssets,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
