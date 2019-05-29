@@ -79,7 +79,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, `name`, ID_card, job_content, job_address, time_setting, protection, reward, insurance,
-    welfare, change, breach, company, cp_address, time, state
+    welfare, `change`, breach, company, cp_address, `time`, state
   </sql>
   <select id="selectByExample" parameterType="com.lqt.hr.model.ContractExample" resultMap="BaseResultMap">
     select
@@ -111,21 +111,21 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lqt.hr.model.Contract" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.lqt.hr.model.Contract">
     insert into contract (id, `name`, ID_card,
       job_content, job_address, time_setting, 
       protection, reward, insurance, 
-      welfare, change, breach, 
+      welfare, `change`, breach,
       company, cp_address, `time`,
       state)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{idCard,jdbcType=CHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{idCard,jdbcType=CHAR},
       #{jobContent,jdbcType=VARCHAR}, #{jobAddress,jdbcType=VARCHAR}, #{timeSetting,jdbcType=VARCHAR}, 
       #{protection,jdbcType=VARCHAR}, #{reward,jdbcType=VARCHAR}, #{insurance,jdbcType=VARCHAR}, 
       #{welfare,jdbcType=VARCHAR}, #{change,jdbcType=VARCHAR}, #{breach,jdbcType=VARCHAR}, 
       #{company,jdbcType=VARCHAR}, #{cpAddress,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
       #{state,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lqt.hr.model.Contract" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.lqt.hr.model.Contract" >
     insert into contract
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -159,7 +159,7 @@
         welfare,
       </if>
       <if test="change != null">
-        change,
+        `change`,
       </if>
       <if test="breach != null">
         breach,
@@ -171,7 +171,7 @@
         cp_address,
       </if>
       <if test="time != null">
-        time,
+        `time`,
       </if>
       <if test="state != null">
         state,

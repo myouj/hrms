@@ -22,7 +22,15 @@ public class ContractServiceImpl implements IContractService {
     }
 
     public int insert(Contract contract) {
-        return contractMapper.insert(contract);
+        contractMapper.insert(contract);
+        return getId(contract);
+    }
+
+    public int getId(Contract contract){
+        ContractExample contractExample = new ContractExample();
+        contractExample.createCriteria().andIdCardEqualTo(contract.getIdCard()).andTimeEqualTo(contract.getTime());
+        List<Contract> contracts = contractMapper.selectByExample(contractExample);
+        return contracts.get(0).getId();
     }
 
     public void update(Contract contract) {

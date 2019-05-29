@@ -109,7 +109,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.lqt.hr.model.Record">
-    insert into record (id, e_id, name, 
+    insert into record (id, e_id, `name`,
       ID_card, gender, state, dept_id, 
       department, job_title, entry_time, 
       bank, account, con_id
