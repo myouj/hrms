@@ -16,12 +16,19 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     public int insert(User user) {
+        userMapper.insert(user);
 
-        return userMapper.insert(user);
+        return getUserId(user);
+    }
+
+    public int getUserId(User user){
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andNameEqualTo(user.getName()).andPasswordEqualTo(user.getPassword());
+        List<User> users = userMapper.selectByExample(userExample);
+        return users.get(0).getId();
     }
 
     public int delete(Integer id) {
-
         return userMapper.deleteByPrimaryKey(id);
     }
 
@@ -40,5 +47,10 @@ public class UserServiceImpl implements IUserService {
         return userMapper.selectByExample(userExample);
     }
 
-
+    public List<User> selectListByName(String name) {
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = userExample.createCriteria().andNameLike("%" + name + "%");
+        List<User> users = userMapper.selectByExample(userExample);
+        return users;
+    }
 }

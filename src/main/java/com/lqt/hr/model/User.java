@@ -13,6 +13,18 @@ public class User {
 
     private Integer eId;
 
+    public User(Integer id, String name, String password, Integer roleId, String roleName, Integer eId) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.roleId = roleId;
+        this.roleName = roleName;
+        this.eId = eId;
+    }
+
+    public User() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -59,5 +71,17 @@ public class User {
 
     public void seteId(Integer eId) {
         this.eId = eId;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", roleId=" + roleId +
+                ", roleName='" + roleName + '\'' +
+                ", eId=" + eId +
+                '}';
     }
 }

@@ -9,6 +9,16 @@ public class Role {
 
     private String description;
 
+    public Role() {
+    }
+
+    public Role(Integer id, String name, Integer level, String description) {
+        this.id = id;
+        this.name = name;
+        this.level = level;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

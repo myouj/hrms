@@ -10,7 +10,9 @@ public interface IRoleService {
 
     Role getRole(Integer id);
 
-    void insert(Role role);
+    List<Role> getRoleByName(String name);
+
+    int insert(Role role);
 
     void update(Role role);
 

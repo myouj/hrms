@@ -26,8 +26,23 @@ public class RoleServiceImpl implements IRoleService {
         return role;
     }
 
-    public void insert(Role role) {
+    public List<Role> getRoleByName(String name) {
+        RoleExample roleExample = new RoleExample();
+        roleExample.createCriteria().andNameLike("%" + name + "%");
+        return roleMapper.selectByExample(roleExample);
+    }
+
+    public int insert(Role role) {
+
         roleMapper.insert(role);
+        return getRoleId(role);
+    }
+
+    public int getRoleId(Role role){
+        RoleExample roleExample = new RoleExample();
+        roleExample.createCriteria().andNameEqualTo(role.getName());
+        List<Role> roles = roleMapper.selectByExample(roleExample);
+        return roles.get(0).getId();
     }
 
     public void update(Role role) {

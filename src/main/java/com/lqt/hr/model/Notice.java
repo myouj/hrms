@@ -13,6 +13,17 @@ public class Notice {
 
     private Date time;
 
+    public Notice() {
+    }
+
+    public Notice(Integer id, String title, String content, String publisher, Date time) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.publisher = publisher;
+        this.time = time;
+    }
+
     public Integer getId() {
         return id;
     }

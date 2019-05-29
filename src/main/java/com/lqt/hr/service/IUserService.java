@@ -16,4 +16,6 @@ public interface IUserService {
 
     List<User> selectList();
 
+    List<User> selectListByName(String name);
+
 }
