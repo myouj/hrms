@@ -29,6 +29,25 @@ public class Record {
 
     private Integer conId;
 
+    public Record() {
+    }
+
+    public Record(Integer id, Integer eId, String name, String idCard, String gender, String state, Integer deptId, String department, String jobTitle, Date entryTime, String bank, String account, Integer conId) {
+        this.id = id;
+        this.eId = eId;
+        this.name = name;
+        this.idCard = idCard;
+        this.gender = gender;
+        this.state = state;
+        this.deptId = deptId;
+        this.department = department;
+        this.jobTitle = jobTitle;
+        this.entryTime = entryTime;
+        this.bank = bank;
+        this.account = account;
+        this.conId = conId;
+    }
+
     public Integer getId() {
         return id;
     }

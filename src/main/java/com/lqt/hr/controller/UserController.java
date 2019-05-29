@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-//    @RequestMapping(value = "insert", method = RequestMethod.POST)
+    @RequestMapping(value = "insert", method = RequestMethod.POST)
     @GetMapping("insert")
     public RespMessage insert(@RequestParam(value = "name")String name,
                               @RequestParam(value = "password")String password,
@@ -42,6 +42,20 @@ public class UserController {
             return RespMessage.fail("error");
         }
     }
+
+    /*@PostMapping("insert")
+    public RespMessage insert(User user){
+        System.out.println("user/insert");
+        try {
+            int id = userService.insert(user);
+            Map<String, Integer> map = new HashMap<String, Integer>();
+            map.put("id", id);
+            return RespMessage.success(map);
+        }catch (Exception e){
+            e.printStackTrace();
+            return RespMessage.fail("error");
+        }
+    }*/
 
     @GetMapping("/getUsers")
     public RespMessage getUsers(){
