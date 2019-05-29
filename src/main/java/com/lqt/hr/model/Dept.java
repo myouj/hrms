@@ -7,6 +7,15 @@ public class Dept {
 
     private String duty;
 
+    public Dept(Integer id, String name, String duty) {
+        this.id = id;
+        this.name = name;
+        this.duty = duty;
+    }
+
+    public Dept() {
+    }
+
     public Integer getId() {
         return id;
     }
