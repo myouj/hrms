@@ -33,6 +33,28 @@ public class Contract {
 
     private String state;
 
+    public Contract() {
+    }
+
+    public Contract(Integer id, String name, String idCard, String jobContent, String jobAddress, String timeSetting, String protection, String reward, String insurance, String welfare, String change, String breach, String company, String cpAddress, String time, String state) {
+        this.id = id;
+        this.name = name;
+        this.idCard = idCard;
+        this.jobContent = jobContent;
+        this.jobAddress = jobAddress;
+        this.timeSetting = timeSetting;
+        this.protection = protection;
+        this.reward = reward;
+        this.insurance = insurance;
+        this.welfare = welfare;
+        this.change = change;
+        this.breach = breach;
+        this.company = company;
+        this.cpAddress = cpAddress;
+        this.time = time;
+        this.state = state;
+    }
+
     public Integer getId() {
         return id;
     }

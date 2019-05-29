@@ -18,7 +18,6 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping(value = "insert", method = RequestMethod.POST)
     @GetMapping("insert")
     public RespMessage insert(@RequestParam(value = "name")String name,
                               @RequestParam(value = "password")String password,

@@ -111,12 +111,12 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lqt.hr.model.Contract">
+  <insert id="insert" parameterType="com.lqt.hr.model.Contract" useGeneratedKeys="true" keyProperty="id">
     insert into contract (id, `name`, ID_card,
       job_content, job_address, time_setting, 
       protection, reward, insurance, 
       welfare, change, breach, 
-      company, cp_address, time, 
+      company, cp_address, `time`,
       state)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{idCard,jdbcType=CHAR}, 
       #{jobContent,jdbcType=VARCHAR}, #{jobAddress,jdbcType=VARCHAR}, #{timeSetting,jdbcType=VARCHAR}, 
@@ -125,7 +125,7 @@
       #{company,jdbcType=VARCHAR}, #{cpAddress,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
       #{state,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lqt.hr.model.Contract">
+  <insert id="insertSelective" parameterType="com.lqt.hr.model.Contract" useGeneratedKeys="true" keyProperty="id">
     insert into contract
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

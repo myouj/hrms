@@ -6,7 +6,7 @@ import com.lqt.hr.service.IRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +48,7 @@ public class RecordController {
                               @RequestParam(value = "conId",required = false)Integer conId){
         System.out.println("record/insert");
         Record record = new Record(null, eId, name, idCard, gender, state, deptId, department, jobTitle,
-                new Date(entryTime), bank, account, conId);
+                entryTime, bank, account, conId);
         try {
             int id = recordService.insert(record);
             Map<String, Object> map = new HashMap<String, Object>();
@@ -88,7 +88,7 @@ public class RecordController {
                               @RequestParam(value = "conId",required = false)Integer conId){
         System.out.println("record/update");
         Record record = new Record(id, eId, name, idCard, gender, state, deptId, department, jobTitle,
-                new Date(entryTime), bank, account, conId);
+                entryTime, bank, account, conId);
         try {
             recordService.update(record);
             return RespMessage.SUCCESS;

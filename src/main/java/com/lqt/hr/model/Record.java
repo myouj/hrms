@@ -1,6 +1,6 @@
 package com.lqt.hr.model;
 
-import java.util.Date;
+
 
 public class Record {
     private Integer id;
@@ -21,7 +21,7 @@ public class Record {
 
     private String jobTitle;
 
-    private Date entryTime;
+    private String entryTime;
 
     private String bank;
 
@@ -32,7 +32,7 @@ public class Record {
     public Record() {
     }
 
-    public Record(Integer id, Integer eId, String name, String idCard, String gender, String state, Integer deptId, String department, String jobTitle, Date entryTime, String bank, String account, Integer conId) {
+    public Record(Integer id, Integer eId, String name, String idCard, String gender, String state, Integer deptId, String department, String jobTitle, String entryTime, String bank, String account, Integer conId) {
         this.id = id;
         this.eId = eId;
         this.name = name;
@@ -120,11 +120,11 @@ public class Record {
         this.jobTitle = jobTitle == null ? null : jobTitle.trim();
     }
 
-    public Date getEntryTime() {
+    public String getEntryTime() {
         return entryTime;
     }
 
-    public void setEntryTime(Date entryTime) {
+    public void setEntryTime(String entryTime) {
         this.entryTime = entryTime;
     }
 

@@ -11,7 +11,7 @@
     <result column="dept_id" jdbcType="INTEGER" property="deptId" />
     <result column="department" jdbcType="VARCHAR" property="department" />
     <result column="job_title" jdbcType="VARCHAR" property="jobTitle" />
-    <result column="entry_time" jdbcType="TIMESTAMP" property="entryTime" />
+    <result column="entry_time" jdbcType="VARCHAR" property="entryTime" />
     <result column="bank" jdbcType="VARCHAR" property="bank" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="con_id" jdbcType="INTEGER" property="conId" />
@@ -116,7 +116,7 @@
       )
     values (#{id,jdbcType=INTEGER}, #{eId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{idCard,jdbcType=CHAR}, #{gender,jdbcType=CHAR}, #{state,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, 
-      #{department,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR}, #{entryTime,jdbcType=TIMESTAMP}, 
+      #{department,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR}, #{entryTime,jdbcType=VARCHAR},
       #{bank,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{conId,jdbcType=INTEGER}
       )
   </insert>
@@ -192,7 +192,7 @@
         #{jobTitle,jdbcType=VARCHAR},
       </if>
       <if test="entryTime != null">
-        #{entryTime,jdbcType=TIMESTAMP},
+        #{entryTime,jdbcType=VARCHAR},
       </if>
       <if test="bank != null">
         #{bank,jdbcType=VARCHAR},
@@ -242,7 +242,7 @@
         job_title = #{record.jobTitle,jdbcType=VARCHAR},
       </if>
       <if test="record.entryTime != null">
-        entry_time = #{record.entryTime,jdbcType=TIMESTAMP},
+        entry_time = #{record.entryTime,jdbcType=VARCHAR},
       </if>
       <if test="record.bank != null">
         bank = #{record.bank,jdbcType=VARCHAR},
@@ -269,7 +269,7 @@
       dept_id = #{record.deptId,jdbcType=INTEGER},
       department = #{record.department,jdbcType=VARCHAR},
       job_title = #{record.jobTitle,jdbcType=VARCHAR},
-      entry_time = #{record.entryTime,jdbcType=TIMESTAMP},
+      entry_time = #{record.entryTime,jdbcType=VARCHAR},
       bank = #{record.bank,jdbcType=VARCHAR},
       account = #{record.account,jdbcType=VARCHAR},
       con_id = #{record.conId,jdbcType=INTEGER}
@@ -305,7 +305,7 @@
         job_title = #{jobTitle,jdbcType=VARCHAR},
       </if>
       <if test="entryTime != null">
-        entry_time = #{entryTime,jdbcType=TIMESTAMP},
+        entry_time = #{entryTime,jdbcType=VARCHAR},
       </if>
       <if test="bank != null">
         bank = #{bank,jdbcType=VARCHAR},
@@ -329,7 +329,7 @@
       dept_id = #{deptId,jdbcType=INTEGER},
       department = #{department,jdbcType=VARCHAR},
       job_title = #{jobTitle,jdbcType=VARCHAR},
-      entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      entry_time = #{entryTime,jdbcType=VARCHAR},
       bank = #{bank,jdbcType=VARCHAR},
       account = #{account,jdbcType=VARCHAR},
       con_id = #{conId,jdbcType=INTEGER}
