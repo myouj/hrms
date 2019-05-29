@@ -1,5 +1,7 @@
 package com.lqt.hr.service;
 
+import com.lqt.hr.model.Permission;
+
 import java.util.List;
 
 public interface IPermissionService {

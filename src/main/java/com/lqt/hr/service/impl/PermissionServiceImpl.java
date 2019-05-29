@@ -1,5 +1,8 @@
 package com.lqt.hr.service.impl;
 
+import com.lqt.hr.dao.PermissionMapper;
+import com.lqt.hr.model.Permission;
+import com.lqt.hr.model.PermissionExample;
 import com.lqt.hr.service.IPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

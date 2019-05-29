@@ -1,5 +1,8 @@
 package com.lqt.hr.service.impl;
 
+import com.lqt.hr.dao.RoleMapper;
+import com.lqt.hr.model.Role;
+import com.lqt.hr.model.RoleExample;
 import com.lqt.hr.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
