@@ -6,7 +6,7 @@ public class RespMessage {
     private String message;
     private Object data;
 
-    public static RespMessage SUCCESS = new RespMessage(200, null, null);
+    public static RespMessage SUCCESS = new RespMessage(200, "success", null);
 
     public static RespMessage fail(String message){
         return new RespMessage(500, message, null);

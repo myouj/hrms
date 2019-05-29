@@ -104,7 +104,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.lqt.hr.model.ComRecord">
-    insert into com_record (id, name, rg_number, 
+    insert into com_record (id, `name`, rg_number,
       rg_address, representative, range, 
       type, rg_assets, time
       )
@@ -120,7 +120,7 @@
         id,
       </if>
       <if test="name != null">
-        name,
+        `name`,
       </if>
       <if test="rgNumber != null">
         rg_number,
@@ -187,7 +187,7 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
+        `name` = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.rgNumber != null">
         rg_number = #{record.rgNumber,jdbcType=INTEGER},
@@ -218,7 +218,7 @@
   <update id="updateByExample" parameterType="map">
     update com_record
     set id = #{record.id,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
+      `name` = #{record.name,jdbcType=VARCHAR},
       rg_number = #{record.rgNumber,jdbcType=INTEGER},
       rg_address = #{record.rgAddress,jdbcType=VARCHAR},
       representative = #{record.representative,jdbcType=VARCHAR},
@@ -234,7 +234,7 @@
     update com_record
     <set>
       <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+        `name` = #{name,jdbcType=VARCHAR},
       </if>
       <if test="rgNumber != null">
         rg_number = #{rgNumber,jdbcType=INTEGER},
@@ -262,7 +262,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lqt.hr.model.ComRecord">
     update com_record
-    set name = #{name,jdbcType=VARCHAR},
+    set `name` = #{name,jdbcType=VARCHAR},
       rg_number = #{rgNumber,jdbcType=INTEGER},
       rg_address = #{rgAddress,jdbcType=VARCHAR},
       representative = #{representative,jdbcType=VARCHAR},
