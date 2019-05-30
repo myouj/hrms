@@ -47,4 +47,11 @@ public class SalaryServiceImpl implements ISalaryService {
         salaryMapper.deleteByPrimaryKey(id);
 
     }
+
+    public List<Salary> getByName(String name) {
+        SalaryExample salaryExample = new SalaryExample();
+        salaryExample.createCriteria().andENameLike("%" + name + "%");
+        List<Salary> salaries = salaryMapper.selectByExample(salaryExample);
+        return salaries;
+    }
 }

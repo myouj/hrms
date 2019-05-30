@@ -13,4 +13,6 @@ public interface ISalaryService {
     void update(Salary salary);
 
     void delete(Integer id);
+
+    List<Salary> getByName(String name);
 }

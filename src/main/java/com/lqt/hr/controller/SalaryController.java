@@ -82,4 +82,10 @@ public class SalaryController {
             return RespMessage.fail("error");
         }
     }
+
+    @GetMapping("getByName")
+    public RespMessage getByName(@RequestParam("name")String name){
+        List<Salary> salaries = salaryService.getByName(name);
+        return RespMessage.success(salaries);
+    }
 }
