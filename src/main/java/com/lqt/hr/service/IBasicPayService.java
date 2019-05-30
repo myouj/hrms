@@ -10,7 +10,7 @@ public interface IBasicPayService {
 
     BasicPay getById(Integer id);
 
-    void insert(BasicPay basicPay);
+    int insert(BasicPay basicPay);
 
     void update(BasicPay basicPay);
 

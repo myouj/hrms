@@ -15,6 +15,18 @@ public class Rules {
 
     private Date time;
 
+    public Rules() {
+    }
+
+    public Rules(Integer id, String title, String item, String type, String publisher, Date time) {
+        this.id = id;
+        this.title = title;
+        this.item = item;
+        this.type = type;
+        this.publisher = publisher;
+        this.time = time;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -27,6 +27,13 @@ public class ContractController {
         return RespMessage.success(contracts);
     }
 
+    @GetMapping("getByName")
+    public RespMessage getByName(@RequestParam("name")String name){
+        System.out.println("contract/getByName");
+        List<Contract> contracts = contractService.getByName(name);
+        return RespMessage.success(contracts);
+    }
+
     @GetMapping("insert")
     public RespMessage insert(@RequestParam(value = "name", required = false) String name,
                               @RequestParam(value = "idCard") String idCard,

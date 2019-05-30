@@ -9,6 +9,16 @@ public class BasicPay {
 
     private Integer salary;
 
+    public BasicPay() {
+    }
+
+    public BasicPay(Integer id, Integer eId, String eName, Integer salary) {
+        this.id = id;
+        this.eId = eId;
+        this.eName = eName;
+        this.salary = salary;
+    }
+
     public Integer getId() {
         return id;
     }

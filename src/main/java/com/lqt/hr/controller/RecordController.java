@@ -6,7 +6,6 @@ import com.lqt.hr.service.IRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,6 +95,12 @@ public class RecordController {
             e.printStackTrace();
             return RespMessage.fail("error");
         }
+    }
 
+    @GetMapping("getRecordsByName")
+    public RespMessage getRecordsByName(@RequestParam("name")String name){
+        System.out.println("record/getRecordsByName");
+        List<Record> records = recordService.getRecordsByName(name);
+        return RespMessage.success(records);
     }
 }

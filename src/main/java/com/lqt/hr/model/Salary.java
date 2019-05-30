@@ -19,6 +19,21 @@ public class Salary {
 
     private String remark;
 
+    public Salary() {
+    }
+
+    public Salary(Integer id, Integer month, Integer eId, String eName, Integer salaryId, Integer salary, Integer bonus, Integer penalty, String remark) {
+        this.id = id;
+        this.month = month;
+        this.eId = eId;
+        this.eName = eName;
+        this.salaryId = salaryId;
+        this.salary = salary;
+        this.bonus = bonus;
+        this.penalty = penalty;
+        this.remark = remark;
+    }
+
     public Integer getId() {
         return id;
     }

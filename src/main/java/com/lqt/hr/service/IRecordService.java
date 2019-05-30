@@ -10,6 +10,8 @@ public interface IRecordService {
 
     Record getRecord(Integer id);
 
+    List<Record> getRecordsByName(String name);
+
     int insert(Record record);
 
     void delete(Integer id);

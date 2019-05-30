@@ -108,4 +108,14 @@ public class UserController {
         }
 
     }
+
+    @GetMapping("login")
+    public RespMessage login(@RequestParam("name")String name,
+                             @RequestParam("password")String password){
+        System.out.println("user/login");
+        //todo 判断登陆，登陆成功后返回roleId
+
+
+        return RespMessage.success(null);
+    }
 }

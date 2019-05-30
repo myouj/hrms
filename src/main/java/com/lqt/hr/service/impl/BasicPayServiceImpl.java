@@ -27,9 +27,18 @@ public class BasicPayServiceImpl implements IBasicPayService {
         return basicPay;
     }
 
-    public void insert(BasicPay basicPay) {
+    public int insert(BasicPay basicPay) {
         basicPayMapper.insert(basicPay);
+        return getId(basicPay);
 
+    }
+
+
+    public int getId(BasicPay basicPay){
+        BasicPayExample basicPayExample = new BasicPayExample();
+        basicPayExample.createCriteria().andEIdEqualTo(basicPay.geteId()).andENameEqualTo(basicPay.geteName());
+        List<BasicPay> basicPays = basicPayMapper.selectByExample(basicPayExample);
+        return basicPays.get(0).getId();
     }
 
     public void update(BasicPay basicPay) {

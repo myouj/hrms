@@ -25,6 +25,13 @@ public class RecordServiceImpl implements IRecordService {
         return recordMapper.selectByPrimaryKey(id);
     }
 
+    public List<Record> getRecordsByName(String name) {
+        RecordExample recordExample = new RecordExample();
+        recordExample.createCriteria().andNameLike("%" + name + "%");
+        List<Record> records = recordMapper.selectByExample(recordExample);
+        return records;
+    }
+
     public int insert(Record record) {
         recordMapper.insert(record);
         return getId(record);

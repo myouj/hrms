@@ -21,6 +21,13 @@ public class ContractServiceImpl implements IContractService {
         return contractMapper.selectByExample(contractExample);
     }
 
+    public List<Contract> getByName(String name) {
+        ContractExample contractExample = new ContractExample();
+        contractExample.createCriteria().andNameLike("%" + name + "%");
+
+        return contractMapper.selectByExample(contractExample);
+    }
+
     public int insert(Contract contract) {
         contractMapper.insert(contract);
         return getId(contract);

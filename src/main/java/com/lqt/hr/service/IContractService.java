@@ -8,6 +8,8 @@ public interface IContractService {
 
     List<Contract> getList();
 
+    List<Contract> getByName(String name);
+
     int insert(Contract contract);
 
     void update(Contract contract);
