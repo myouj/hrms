@@ -49,7 +49,7 @@ public class UserServiceImpl implements IUserService {
 
     public List<User> selectListByName(String name) {
         UserExample userExample = new UserExample();
-        UserExample.Criteria criteria = userExample.createCriteria().andNameLike("%" + name + "%");
+        userExample.createCriteria().andNameLike("%" + name + "%");
         List<User> users = userMapper.selectByExample(userExample);
         return users;
     }
