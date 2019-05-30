@@ -53,4 +53,11 @@ public class UserServiceImpl implements IUserService {
         List<User> users = userMapper.selectByExample(userExample);
         return users;
     }
+
+    public User login(String name, String password) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);
+        List<User> users = userMapper.selectByExample(userExample);
+        return users.get(0);
+    }
 }

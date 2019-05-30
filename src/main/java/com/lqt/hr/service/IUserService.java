@@ -18,4 +18,6 @@ public interface IUserService {
 
     List<User> selectListByName(String name);
 
+    User login(String name, String password);
+
 }

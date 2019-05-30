@@ -114,8 +114,12 @@ public class UserController {
                              @RequestParam("password")String password){
         System.out.println("user/login");
         //todo 判断登陆，登陆成功后返回roleId
-
-
-        return RespMessage.success(null);
+        User user = userService.login(name, password);
+        if(user == null){
+            return RespMessage.fail("账号或密码错误");
+        }
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("roleId", user.getRoleId());
+        return RespMessage.success(map);
     }
 }
