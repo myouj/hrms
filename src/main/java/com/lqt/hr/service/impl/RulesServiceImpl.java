@@ -17,7 +17,7 @@ public class RulesServiceImpl implements IRulesService {
 
     public List<Rules> getList() {
         RulesExample rulesExample = new RulesExample();
-
+        rulesExample.setOrderByClause("time desc");
         return rulesMapper.selectByExample(rulesExample);
     }
 

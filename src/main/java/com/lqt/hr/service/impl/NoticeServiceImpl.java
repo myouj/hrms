@@ -17,7 +17,7 @@ public class NoticeServiceImpl implements INoticeService {
 
     public List<Notice> getList() {
         NoticeExample noticeExample = new NoticeExample();
-
+        noticeExample.setOrderByClause("time desc");
         return noticeMapper.selectByExample(noticeExample);
     }
 
