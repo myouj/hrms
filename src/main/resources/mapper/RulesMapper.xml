@@ -102,10 +102,10 @@
   </delete>
   <insert id="insert" parameterType="com.lqt.hr.model.Rules">
     insert into rules (id, title, item, 
-      type, publisher, time
+      type, publisher
       )
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{item,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}
+      #{type,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.lqt.hr.model.Rules">
@@ -126,9 +126,6 @@
       <if test="publisher != null">
         publisher,
       </if>
-      <if test="time != null">
-        time,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -145,9 +142,6 @@
       </if>
       <if test="publisher != null">
         #{publisher,jdbcType=VARCHAR},
-      </if>
-      <if test="time != null">
-        #{time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
